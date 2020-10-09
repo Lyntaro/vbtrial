@@ -1,0 +1,208 @@
+/* PC向けレイアウト */
+
+
+/* フォント情報など */
+body {
+    font-family:"ヒラギノ角ゴ Std","Hiragino Kaku Gothic Std", sans-serif;
+    font-weight:100;
+}
+
+
+/* ヘッダーのレイアウト */
+.header{
+    width:1280pt;
+    height:80pt;
+    background-color:#FFFFFF;
+    position:relative;
+}
+
+.logo{
+    float:left;
+    position:absolute;
+    top:32pt;
+    left:20pt;
+}
+
+
+/* 買取，ライブラリ，読みもの */
+.menus a{
+    color:#2C2C2C;
+}
+
+.menus a:hover{
+    text-decoration:none;
+}
+
+.menu{
+    float:left;
+}
+
+.menu img{
+    width:24pt;
+    height:24pt;
+    float:left;
+    margin:auto;
+}
+
+/* 文字間隔(letter-spacing)はAV/1000[em] */
+/* 行送り(line-height)は(数値)/(フォントサイズ) :(ex) 24/14=1.714 [単位なし] */
+.menu p{
+    margin:auto;
+    font-size:14pt;
+    letter-spacing: 0.14pt;
+    line-height: 1.714;
+    float:left;
+}
+
+.kaitori{
+    width:103pt;
+    height:24pt;
+}
+
+.kaitori img{
+    position:relative;
+    top:28pt;
+    left:220pt;
+}
+
+.kaitori p {
+    position:absolute;
+    top:33pt;
+    left:252pt;
+}
+
+.library{
+    width:103pt;
+    height:24pt;
+}
+
+.library img{
+    position:absolute;
+    top:28pt;
+    left:347pt;
+}
+
+.library p {
+    position:absolute;
+    top:33pt;
+    left:379pt;
+}
+
+.yomimono{
+    width:88pt;
+    height:24pt;
+}
+
+.yomimono img{
+    position:absolute;
+    top:28pt;
+    left:474pt;
+}
+
+.yomimono p{
+    position:absolute;
+    top:33pt;
+    left:506pt;
+}
+
+/* 検索ボックス */
+#search-box{
+    position:absolute;
+    top:20pt;
+    left:696pt;
+    width:320pt;
+    height:40pt;
+    border-radius:40pt;
+    border:none;
+    outline:none;
+    background:#F5F5F5;
+}
+
+#search-submit{
+    width:20pt;
+    height:20pt;
+    position:absolute;
+    top:30pt;
+    left:980pt;
+    background-image:url(images/icon_search.svg);
+}
+
+
+/* ボタン */
+.btn {
+    border-radius:4pt;
+    text-align:center;
+    font-size:12pt;
+    display:inline-block;
+    width:80pt;
+    height:32pt;
+    text-decoration:none;
+    margin:auto;
+}
+
+/* ログイン */
+
+.btn-login{
+    position:absolute;
+    top:28pt;
+    left:1040pt;
+    color:#2C2C2C;
+    background-color:#FFFFFF;
+    border:1pt solid #2C2C2C;
+}
+
+/* 新規登録 */
+
+.btn-signup{
+    position:absolute;
+    top:28pt;
+    left:1128pt;
+    color:#FFFFFF;
+    background-color:#2C2C2C;
+}
+
+/*
+.login{
+    width:80pt;
+    height:32pt;
+    border:1pt solid #2C2C2C;
+    border-radius: 4pt;
+    text-align:center;
+    color:#2C2C2C;
+    background-color:#FFFFFF;
+    font-size:12pt;
+}
+
+.signup {
+    position:absolute;
+    top:28pt;
+    left:1128pt;
+    width:80pt;
+    height:32pt;
+    border-radius:4pt;
+    text-align:center;
+    color:#FFFFFF;
+    background-color:#2C2C2C;
+}
+
+*/
+
+
+/* 売れる本だけ，選んで，送る */
+.header2{
+    background-color:#FBFAF5;
+    width:1280pt;
+    height:196pt;
+}
+
+/* スマートフォン向けレイアウト */
+@media (max-width:670px){
+    .flex-list {
+        flex-direction: column;
+    }
+    
+    .flex-list li{
+        margin: 0 auto;
+    }
+
+}
