@@ -168,15 +168,18 @@ body {
     background-color:#FBFAF5;
     width:1280pt;
     height:196pt;
-    float:left;
-    position:relative;
+    /* position:relative; */
     font-family: "ヒラギノ角ゴシック W3", sans-serif;
 }
 
 .header2-text {
-    position:absolute;
+    /* position:absolute; 
     top: 72pt;
-    left:140pt; 
+    left:140pt; */
+    margin-top: 72pt;
+    margin-left: 140pt;
+    float:left;
+    width: 378pt;
 }
 
 .header2-text h3 {
@@ -189,10 +192,22 @@ body {
     font-size: 10pt;
 }
 
+.header2-img {
+    /* position: absolute; 
+    top: 48pt; 
+    left: 534pt; */
+    padding-left: 16pt;
+    padding-top: 48pt;
+    margin-right: 203pt;
+    float: left;
+}
+.header2-img img{
+    width: 76pt;
+    height: 100pt;
+}
+
 .header2-send {
-    position: absolute; 
-    top: 57pt;
-    left: 813pt;
+    padding-top: 57pt;
     text-align:center; 
 }
 
@@ -215,17 +230,6 @@ body {
 }
 
 
-.header2-img {
-    position: absolute; 
-    top: 48pt; 
-    left: 534pt;
-}
-.header2-img img{
-    width: 76pt;
-    height: 100pt;
-}
-
-
 /* メイン　*/
 
 .main{
@@ -244,7 +248,7 @@ body {
 .cardboard {
     position:absolute;
     top: 120pt;
-    left: 580pt;
+    left: 50%;
     width:120pt;
     height:120pt;
     z-index: 20;
@@ -252,8 +256,9 @@ body {
 
 .howto {
     position:absolute;
+    transform: translate(-50%, 0);
     top: 180pt;
-    left:341pt;
+    left:50%;
     width:600pt;
     height:512pt;
     box-shadow: 0 0 15pt #808080;
@@ -269,6 +274,7 @@ body {
 
 .howto dl {
     text-align:left;
+    width: 458pt;
 }
 
 .howto dt {
@@ -295,15 +301,19 @@ body {
     background-color:#F5F5F5;
     text-align:center;
     padding-top: 120pt;
-    position: relative;
+    /* position: relative; */
 }
 
 .faqs {
     font-family: "ヒラギノ角ゴシック W3",sans-serif;
     width: 800pt;
-    position: absolute; 
-    top: 174pt;
-    left: 240pt;
+    /*position: absolute; */
+    margin-top: 32pt;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    /* top: 174pt;
+    left: 240pt; */
 }
 
 .faq h3 {
@@ -314,41 +324,85 @@ body {
     display: none;
 }
 
+.faq-border{
+    height: 0;
+    width: 800pt;
+    border-top: 1pt solid #CACACA;
+}
+
+/*
+.faq-displayed {
+    width: 800pt;
+    border-top: 1pt solid #CACACA;
+}
+*/
+
+
 .faq-label{
     display: block;
     margin-bottom: 1px;
-    padding: 10px;
-    width: 800pt;
+    padding-top: 48pt;
+    padding-bottom: 48pt;
+    margin-right: 16pt;
+    margin-left: 27pt;
+    width: 704pt;
     font-size: 16pt;
     text-align: left;
+    /*border-top: 1pt solid #CACACA; */
+}
+
+.faq-img {
+    width: 24pt;
+    height: 24pt;
+    float: right;
+}
+
+.faq-img:checked {
+    width: 18pt;
+    height: 18pt;
+    float: right;
+    transform: rotate(45deg);
 }
 
 .faq-content {
-    border: 1px solid #333;
+    border: 0px solid #333;
+    width: 704pt;
     height: 0;
     opacity: 0;
-    padding: 0 10px;
+    /*padding: 10px;*/
     transition: .5s;
     visibility: hidden;
     font-size: 14pt;
     text-align: left;
+
 }
 
 .faq-check:checked + .faq-label + .faq-content {
-    height: 40px;
+    height: 38pt;/* 文字数に合わせて変化させるには? */
     opacity: 1;
-    padding: 10px;
+    /*padding: 10px;*/
+    padding-bottom: 48pt;
     visibility: visible;
 }
 
 
 .morefaq {
+    padding-top: 48pt;
+    width: 800pt;
+    margin-right: auto;
+    margin-left: auto;
+    /*border-top: 1pt solid #CACACA;*/
+    text-align: center;
+}
+
+.morefaq a {
     font-size: 12pt;
     width: 176pt; 
     height: 22pt; /* 32-10 */
     border-radius: 4pt;
     display: inline-block;
     border: 1pt solid #2c2c2c;
+    color: #2c2c2c;
     text-decoration: none;
     padding-top: 10pt;
 }
