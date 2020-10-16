@@ -233,7 +233,7 @@ body {
 /* メイン　*/
 
 .main{
-    position:relative;
+    /*position:relative;*/
     text-align:center;
     width:1280pt;
     height:1351pt;
@@ -242,28 +242,138 @@ body {
 
 /* スライドショー部分 */
 
+.out{
+    position: relative;
+}
+/*
+.in img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .3s;
+}*/
+
+
+.in label {
+    text-decoration: none;
+}
+
+
+.slide {
+    /*position: absolute;
+    top: 0;
+    left: 0;*/
+    width: 1044pt;
+    height: 355pt;/* 325+24+6 */
+    margin-top: 56pt;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40pt;
+    text-align: left;
+}
+
+.slide-text {
+    text-align: left;
+    float: left;
+}
+
+.slide-text img {
+    padding-top: 56pt;
+    padding-left: 0.5pt;
+    padding-bottom: 16pt;
+    width: 72pt;
+    height: 16pt;
+}
+
+.slide-text h3 {
+    font-size: 22pt;
+}
+
+.slide-text h4 {
+    font-size: 18pt;
+}
+
+.slide-description {
+    width: 240pt;
+    height: 97pt;
+    /*float: left;*/
+}
+
+.slide-description p {
+    font-size: 16pt;
+    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+}
+
+.slide-img {
+    padding-left: 120pt;
+    padding-right: 24pt;
+    float: left;
+}
+
+.slide-img img {
+    width: 640pt;
+    height: 325pt;
+}
+
+.slide-arrow {
+    padding-top: 160pt;
+}
+
+.slide-arrow  img {
+    width: 20pt;
+    height: 40pt;
+}
+
+#search-price-img {
+    width: 20pt;
+    height: 20pt;
+}
+
+#search-price  {
+    font-size: 16pt;
+    text-decoration:none; 
+    width: 327pt; 
+    height: 33pt; /* 48 - 15 */
+    border-radius: 4pt;
+    display:inline-block; 
+    border: 1pt solid #000000;
+    padding-top: 15pt;
+    /* margin-bottom: 120pt;*/
+}
 
 /* 本と一緒に，ご準備ください　のあたり */
 
-.cardboard {
+.howto-div {
+    position:relative; 
+    margin-top: 120pt;
+    width: 600pt;
+    height: 572pt;
+    text-align: center;
+}
+
+.howto-div img {
     position:absolute;
-    top: 120pt;
+    top: 0;
     left: 50%;
     width:120pt;
     height:120pt;
+    /*margin-top: 120pt;*/
     z-index: 20;
 }
 
 .howto {
     position:absolute;
-    transform: translate(-50%, 0);
-    top: 180pt;
+    top: 60pt;
     left:50%;
+    /*transform: translate(-50%, 0);*/
     width:600pt;
     height:512pt;
     box-shadow: 0 0 15pt #808080;
     padding-top:100pt;
     padding-left:64pt;
+    margin-left: auto;
+    margin-right: auto;
     text-align:left;
     z-index: 10;
 }
