@@ -21,6 +21,8 @@ body {
     position:absolute;
     top:32pt;
     left:20pt;
+    width: 160pt;
+    height: 16.28pt;
 }
 
 
@@ -233,31 +235,78 @@ body {
 /* メイン　*/
 
 .main{
-    /*position:relative;*/
+    position:relative;
     text-align:center;
     width:1280pt;
-    height:1351pt;
+    height:1401pt;/* 1351 + 50ぐらい*/
 }
 
 
 /* スライドショー部分 */
 
+/* ここからコピペ  https://csshtml.work/css-only-select-slide/  */
+
 .out{
     position: relative;
 }
-/*
-.in img{
+
+/*  後述
+.slide-text {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
     transition: .3s;
-}*/
-
+}
+*/
 
 .in label {
     text-decoration: none;
 }
+
+
+input{
+    display: none;
+}
+.in {
+    display: flex;
+    justify-content: center;
+    height: 355pt;
+}
+
+label span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    padding: 7px;
+    margin: -40px 0 0;
+    border-radius: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+label span::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #4287f5;
+    opacity: 0.5;
+    border-radius: 100%;
+}
+
+label input:checked + span::before{
+    background: #000;
+    opacity: 1;
+}
+
+/*label input:checked ~ img,label input:checked ~ a img{*/
+label input:checked ~ .slide,label input:checked ~ a .slide{
+    opacity: 1;
+    z-index: 1;
+}
+
+/* ここまでコピペ */
 
 
 .slide {
@@ -271,11 +320,20 @@ body {
     margin-right: auto;
     margin-bottom: 40pt;
     text-align: left;
+    /* ここからコピペ */
+    position: absolute;
+    top: 0;
+    left: auto;/* 0から変更*/
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: .3s;
+    /* ここまでコピペ */
 }
 
 .slide-text {
     text-align: left;
     float: left;
+    color: #000000;
 }
 
 .slide-text img {
@@ -325,28 +383,40 @@ body {
     height: 40pt;
 }
 
+
+
 #search-price-img {
     width: 20pt;
     height: 20pt;
 }
 
 #search-price  {
+    position: absolute;
+    top: 451pt;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 16pt;
     text-decoration:none; 
     width: 327pt; 
-    height: 33pt; /* 48 - 15 */
+    height: 16pt; /* 48 - 16 -16 */
     border-radius: 4pt;
     display:inline-block; 
     border: 1pt solid #000000;
-    padding-top: 15pt;
+    padding-top: 16pt;
+    padding-bottom: 16pt;
     /* margin-bottom: 120pt;*/
+    color: #000000;
+    font-family: "ヒラギノ角ゴシック W3";
 }
 
 /* 本と一緒に，ご準備ください　のあたり */
 
 .howto-div {
     position:relative; 
+    top: 120pt;/* 測れなかったのでここはてきとう */
     margin-top: 120pt;
+    margin-left: auto; /* 左右常に中央寄せ */
+    margin-right: auto;
     width: 600pt;
     height: 572pt;
     text-align: center;
@@ -356,6 +426,7 @@ body {
     position:absolute;
     top: 0;
     left: 50%;
+    transform: translateX(-50%);
     width:120pt;
     height:120pt;
     /*margin-top: 120pt;*/
@@ -367,6 +438,7 @@ body {
     top: 60pt;
     left:50%;
     /*transform: translate(-50%, 0);*/
+    transform: translateX(-50%);
     width:600pt;
     height:512pt;
     box-shadow: 0 0 15pt #808080;
@@ -404,6 +476,23 @@ body {
     color: #0095D9;
 }
 
+
+.permission a {
+    /*position: relative;*/
+    position: absolute; 
+    top: 1305pt;/* 1255 + てきとう50*/
+    left: auto;
+    transform: translateX(-50%);
+    width: 176pt;
+    height: 32pt;
+    font-size: 12pt;
+    border-radius: 4pt;
+    border: 1pt solid #2c2c2c;
+    text-decoration: none;
+    color: #000000;
+    padding-top: 10pt;
+}
+
 /* FAQ */
 .faq{
     width:1280pt;
@@ -424,6 +513,13 @@ body {
     text-align: center;
     /* top: 174pt;
     left: 240pt; */
+}
+
+.faqs img {
+    float: left;
+    width: 14pt;
+    height: 20pt;
+    padding-right: 16pt;
 }
 
 .faq h3 {
@@ -455,19 +551,22 @@ body {
     padding-bottom: 48pt;
     margin-right: 16pt;
     margin-left: 27pt;
-    width: 704pt;
+    /*width: 704pt;*/
+    width: 774pt;
     font-size: 16pt;
     text-align: left;
     /*border-top: 1pt solid #CACACA; */
 }
 
-.faq-img {
+
+
+.faq-checkbox {
     width: 24pt;
     height: 24pt;
     float: right;
 }
 
-.faq-img:checked {
+.faq-checkbox:checked {
     width: 18pt;
     height: 18pt;
     float: right;
@@ -480,11 +579,24 @@ body {
     height: 0;
     opacity: 0;
     /*padding: 10px;*/
+    margin-left: 27pt;
     transition: .5s;
     visibility: hidden;
+}
+
+.faq-content img {
+    width: 14pt;
+    height: 17pt;
+    padding-right: 16pt;
+    margin-bottom: 21pt;/* 隣のAが下に回り込まないように調整 */
+    float: left;
+}
+
+.faq-content p {
+    width: 704pt;
+    height: 38pt;
     font-size: 14pt;
     text-align: left;
-
 }
 
 .faq-check:checked + .faq-label + .faq-content {

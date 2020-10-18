@@ -7,9 +7,9 @@
     </head>
     <body>
         <div class="header">
-            <div class="logo">
-                VALUE BOOKS
-            </div>
+            <a class="logo">
+                <img src="images/logo.svg">
+            </a>
             <div class="menus">
                 <a class="menu kaitori" href="">
                     <img src="images/icon_purchase.svg">
@@ -69,6 +69,8 @@
                         <!--
                         <label><input type=radio name="slide" checked><span></span><a href="#1"><img src="1.jpg"></a></label>
                         -->
+
+                        <!-- ここからひとつのスライド -->
                         <label><input type=radio name="slide" checked><a href="#1">
                            <div class="slide">
                                <div class="slide-text">
@@ -86,8 +88,32 @@
                                     <img src="images/step_arrow.svg">
                                 </div>
                            </div> 
-                           <a id="search-price" href="#"><img id="search-price-img" src="images/icon_camera.svg">本の値段を調べる</a>
                         </a></label>
+                        <!-- ここまで -->
+                        
+                        <!-- ここからひとつのスライド -->
+                        <label><input type=radio name="slide" checked><a href="#2">
+                            <div class="slide">
+                                <div class="slide-text">
+                                    <img src="images/5step.svg">
+                                    <h3>ご利用の流れ</h3>
+                                    <h4>1.おためし査定をする</h4>
+                                    <div class="slide-description">
+                                        <p>スマホで本の背表紙を撮るだけで、まとめて本の査定額がわかります。バーコード撮影で1冊ずつ調べることもできます。</p>
+                                    </div>
+                                </div>
+                                <div class="slide-img">
+                                    <img src="images/step_ph_1/step_ph_1@3x.png">
+                                </div>
+                                <div class="slide-arrow">
+                                    <img src="images/step_arrow.svg">
+                                </div>
+                            </div> 
+                        </a></label>
+                        <!-- ここまで -->
+                    
+                    <a id="search-price" href="#"><img id="search-price-img" src="images/icon_camera.svg">本の値段を調べる</a>
+
                     </div>
                 </div>
                 <!--
@@ -132,6 +158,9 @@
                     </dl>
                 </div>
             </div>
+            <div class="permission">
+                <a href="#">買い取れない本について</a>
+            </div>
         </div>
 
         <div class="faq">
@@ -140,28 +169,34 @@
                 <div class="faq-border"></div>
                 <input id="faq-check1" class="faq-check" type="checkbox">
                 <label class="faq-label" for="faq-check1">
+                    <img src="images/question.svg">
                     一度の申込みで送れるのは何箱まで？
-                    <div class="faq-img"><img src="images/btn_accordion.svg"></div>
+                    <div class="faq-checkbox"><img src="images/btn_accordion.svg"></div>
                 </label>
                 <div class="faq-content">
+                    <img src="images/answer.svg">
                     <p>通常は39箱までですが、現在、新型コロナウィルスへの対応に伴い、人数を縮小し営業しているため、上限を3箱とさせていただいております。</p>
                 </div>
                 <div class="faq-border"></div>
                 <input id="faq-check2" class="faq-check" type="checkbox">
                 <label class="faq-label" for="faq-check2">
+                    <img src="images/question.svg">
                     申込み後に集荷のキャンセルはできる？
-                    <div class="faq-img"><img src="images/btn_accordion.svg"></div>
+                    <div class="faq-checkbox"><img src="images/btn_accordion.svg"></div>
                 </label>
                 <div class="faq-content">
+                    <img src="images/answer.svg">
                     <p>回答2</p>
                 </div>
                 <div class="faq-border"></div>
                 <input id="faq-check3" class="faq-check" type="checkbox">
                 <label class="faq-label" for="faq-check3">
+                    <img src="images/question.svg">
                     箱数の変更をしたい時は？
-                    <div class="faq-img"><img src="images/btn_accordion.svg"></div>
+                    <div class="faq-checkbox"><img src="images/btn_accordion.svg"></div>
                 </label>
                 <div class="faq-content">
+                    <img src="images/answer.svg">
                     <p>回答3</p>
                 </div>
                 <div class="faq-border"></div>
