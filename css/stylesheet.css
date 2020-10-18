@@ -13,20 +13,25 @@ body {
     width:1280pt;
     height:80pt;
     background-color:#FFFFFF;
-    position:relative;
+    /*position:relative;*/
 }
 
 .logo{
     float:left;
-    position:absolute;
+    /*position:absolute;
     top:32pt;
-    left:20pt;
+    left:20pt;*/
+    margin-top: 32pt;
+    margin-left: 20pt;
+    margin-right: 40pt;
     width: 160pt;
     height: 16.28pt;
 }
 
 
 /* 買取，ライブラリ，読みもの */
+
+/*
 .menus a{
     color:#2C2C2C;
 }
@@ -34,9 +39,22 @@ body {
 .menus a:hover{
     text-decoration:none;
 }
+*/
 
 .menu{
     float:left;
+    width: 103pt;
+    height: 24pt;
+    margin-right: 24pt;
+    margin-top: 28pt;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu p {
+    color: #000000;
 }
 
 .menu img{
@@ -44,6 +62,7 @@ body {
     height:24pt;
     float:left;
     margin:auto;
+    margin-right: 8pt;
 }
 
 /* 文字間隔(letter-spacing)はAV/1000[em] */
@@ -55,7 +74,7 @@ body {
     line-height: 1.714;
     float:left;
 }
-
+/*
 .kaitori{
     width:103pt;
     height:24pt;
@@ -106,6 +125,7 @@ body {
     top:33pt;
     left:506pt;
 }
+*/
 
 /* 検索ボックス */
 #search-box{
@@ -114,10 +134,12 @@ body {
     left:696pt;
     width:320pt;
     height:40pt;
+    padding-left: 12pt;/* +1文字分12pt */
     border-radius:40pt;
     border:none;
     outline:none;
     background:#F5F5F5;
+    font-family: "ヒラギノ角ゴシック W3",sans-serif;
 }
 
 #search-submit{
@@ -265,7 +287,7 @@ body {
 }
 
 
-input{
+#imvisibleinput {
     display: none;
 }
 .in {
