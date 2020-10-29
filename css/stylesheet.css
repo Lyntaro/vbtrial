@@ -1,5 +1,18 @@
 /* PC向けレイアウト */
 
+/* --- 後で貼り付け --- */
+
+/* スマートフォン向けレイアウト */
+@media (max-width:670px){
+    .flex-list {
+        flex-direction: column;
+    }
+    
+    .flex-list li{
+        margin: 0 auto;
+    }
+
+}
 
 /* フォント情報など */
 body {
@@ -9,25 +22,32 @@ body {
 
 
 /* ヘッダーのレイアウト */
-.header{
-    width:1280pt;
-    height:80pt;
+.header {
+    width:375pt;
+    height:110pt;
     background-color:#FFFFFF;
-    /*position:relative;*/
+    position:relative;
 }
 
-.logo{
+.logo-div{/*smartphone*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF; 
+    width: 375pt;
+    height: 71pt;
+    z-index: 1030;
+}
+
+.logo {
     float:left;
-    /*position:absolute;
-    top:32pt;
-    left:20pt;*/
-    margin-top: 32pt;
-    margin-left: 20pt;
-    margin-right: 40pt;
-    width: 160pt;
-    height: 16.28pt;
+    /*display: inline-block;*/
+    margin-top: 28pt;
+    margin-left: 16pt;
+    margin-right: 327pt;/* 次の要素を改行して表示するため引き伸ばし */
+    width: 32pt;
+    height: 18pt;
 }
-
 
 /* 買取，ライブラリ，読みもの */
 
@@ -41,12 +61,15 @@ body {
 }
 */
 
+.menus{
+    position:absolute;
+    top: 70pt;
+    left: 16pt;
+}
 .menu{
     float:left;
-    width: 103pt;
     height: 24pt;
-    margin-right: 24pt;
-    margin-top: 28pt;
+    margin-right: 32pt;
 }
 
 .menu a {
@@ -55,100 +78,66 @@ body {
 
 .menu p {
     color: #000000;
+    font-size: 12pt;
+    margin-top: 6pt;
+    float:left;
 }
 
 .menu img{
     width:24pt;
     height:24pt;
     float:left;
-    margin:auto;
     margin-right: 8pt;
 }
 
 /* 文字間隔(letter-spacing)はAV/1000[em] */
 /* 行送り(line-height)は(数値)/(フォントサイズ) :(ex) 24/14=1.714 [単位なし] */
-.menu p{
-    margin:auto;
-    font-size:14pt;
-    letter-spacing: 0.14pt;
-    line-height: 1.714;
-    float:left;
-}
-/*
-.kaitori{
-    width:103pt;
-    height:24pt;
+
+.kaitori {
+    float: left;
 }
 
-.kaitori img{
-    position:relative;
-    top:28pt;
-    left:220pt;
+.yomimono {
+    margin-right: 0;
 }
-
-.kaitori p {
-    position:absolute;
-    top:33pt;
-    left:252pt;
-}
-
-.library{
-    width:103pt;
-    height:24pt;
-}
-
-.library img{
-    position:absolute;
-    top:28pt;
-    left:347pt;
-}
-
-.library p {
-    position:absolute;
-    top:33pt;
-    left:379pt;
-}
-
-.yomimono{
-    width:88pt;
-    height:24pt;
-}
-
-.yomimono img{
-    position:absolute;
-    top:28pt;
-    left:474pt;
-}
-
-.yomimono p{
-    position:absolute;
-    top:33pt;
-    left:506pt;
-}
-*/
 
 /* 検索ボックス */
 #search-box{
-    position:absolute;
-    top:20pt;
-    left:696pt;
-    width:320pt;
-    height:40pt;
+    position:fixed;/*smartphone*/
+    top:19pt;
+    left:64pt;
+    width:175pt;
+    height:36pt;
     padding-left: 12pt;/* +1文字分12pt */
     border-radius:40pt;
     border:none;
     outline:none;
     background:#F5F5F5;
     font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    z-index: 1031;
 }
+
 
 #search-submit{
     width:20pt;
     height:20pt;
-    position:absolute;
+    position:fixed;/*smartphone*/
     top:30pt;
     left:980pt;
     border: none;
+    display:none; /*smartphone*/
+    z-index: 1032;
+}
+
+#search-camera {
+    position: fixed;/*smartphone*/
+    top: 26pt;
+    left: 207pt;
+    width: 22pt;
+    height: 22pt;
+    border: none; 
+    background-color: #f5f5f5;
+    z-index: 1033;
 }
 
 
@@ -167,6 +156,16 @@ body {
 
 /* ログイン */
 
+.login {
+    position: fixed;/*smartphone*/
+    top: 25pt;
+    left: 255pt;
+    width: 24pt;/*24pt?*/
+    height: 24pt;
+    text-align: center;
+    z-index: 1034;
+}
+
 .btn-login{
     position:absolute;
     top:28pt;
@@ -174,9 +173,31 @@ body {
     color:#2C2C2C;
     background-color:#FFFFFF;
     border:1pt solid #2C2C2C;
+    display:none; /*smartphone*/
+}
+
+.btn-login-phone {
+    /*position: absolute; 
+    top: 25pt;
+    left: 255pt;*/
+    width: 24pt;
+    height: 24pt;
+    border: none;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 /* 新規登録 */
+
+.signup {
+    position: fixed;/*smartphone*/
+    top: 25pt;
+    left: 295pt;
+    width: 24pt;
+    height: 24pt;
+    text-align: center;
+    z-index: 1034;
+}
 
 .btn-signup{
     position:absolute;
@@ -184,36 +205,225 @@ body {
     left:1128pt;
     color:#FFFFFF;
     background-color:#2C2C2C;
+    display: none; /*smartphone*/
 }
 
+.btn-cart-phone {
+    width: 24pt;
+    height: 24pt;
+}
+
+.humberger {
+    position: fixed;/*smartphone*/
+    top: 25pt;
+    left: 335pt;
+    width: 24pt;
+    height: 24pt;
+    z-index: 1034;
+}
+
+
+.btn-humberger-phone { 
+    width: 24pt;
+    height: 24pt;
+}
+
+/*ハンバーガーメニュー用  https://saruwakakun.com/html-css/reference/nav-drawer */
+#nav-drawer {
+    position: relative;
+    width: 375pt;
+}
+  
+/*チェックボックス等は非表示に*/
+  .nav-unshown {
+    display:none;
+}
+  
+/*アイコンのスペース*/
+#nav-open {
+    position: fixed;
+    top: 25pt;
+    /*right: 16pt;*/
+    left: 335pt;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    /*vertical-align: middle;*/
+    z-index: 1100;
+}
+  
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    height: 3px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    border-radius: 3px;
+    background: #555;
+    display: block;
+    content: '';
+    cursor: pointer;
+}
+
+#nav-open span:before {
+    bottom: -8px;
+}
+
+#nav-open span:after {
+    bottom: -16px;
+}
+  
+/*閉じる用の薄黒カバー*/
+#nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 199;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;/*最前面に*/
+    width: 375pt;
+    /*width: 100%;
+    max-width: 375px;/*最大幅（調整してください）*/
+    height: 80%;/* 下側に隙間を作る（閉じるカバーを表示）*/
+    background: #F5F5F5;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    /*transform: translateX(-105%);/*左に隠しておく*/
+    transform: translateY(-105%);/*上に隠しておく*/
+}
+  
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+}
+  
+#nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    /*transform: translateX(0%);/*中身を表示（右へスライド）*/
+    transform: translateY(0%);/*中身を表示（下へスライド）*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+/* 開けたあと，閉じる用のハンバーガーアイコン */
+#nav-input:checked ~ #nav-icon-opened {
+    top: 25pt;
+    left: 335pt;
+    width: 24pt;
+    height: 24pt;
+    z-index: 1110;
+    translate: 5s;
+}
+
+.nav-menus{
+    /*position: absolute;
+    top: 119pt;
+    left: 40pt;*/
+    padding-top: 119pt;
+    padding-left: 40pt;
+}
+
+.nav-menu {
+    float: none;
+    display: block;/*なぜかこれで画像と文字がずれない*/
+    padding-bottom: 32pt;
+    text-decoration:none;
+}
+
+.nav-menu p {
+    float: none;
+}
+
+.nav-menu img {
+    vertical-align: middle;
+}
+
+.nav-othermenus {
+    padding-top: -8pt;/*56-32-32*/
+    padding-left: 40pt;
+}
+
+.nav-othermenu {
+    display: block;
+    text-decoration: none;
+    color: #2c2c2c;
+    font-family: "ヒラギノ角ゴシック W3", sans-serif;
+    font-size: 14pt;
+    float: none;
+    padding-top: 32pt;
+}
+
+.nav-login {
+    color: #2c2c2c;
+    border: 1pt solid #2c2c2c;
+    width: 140pt;
+    height: 38pt;/*48 - 10*/
+    margin-top: 56pt;
+    margin-left: 40pt;
+    margin-bottom: 76pt;
+    font-size: 16pt;
+    font-family: "ヒラギノ角ゴシック W3", sans-serif;
+}
+
+.nav-signup {
+    color: #FFFFFF;
+    background-color: #2c2c2c;
+    width: 140pt;
+    height: 38pt;/*48 - 10*/
+    margin-left: 15pt;
+    margin-bottom: 76pt;
+    font-size: 16pt;
+    font-family: "ヒラギノ角ゴシック W3", sans-serif;
+}
+
+/*ここまでハンバーガーメニュー用*/
 
 /* 売れる本だけ，選んで，送る */
 .header2{
     background-color:#FBFAF5;
-    width:1280pt;
-    height:196pt;
+    width:375pt;/*1280pt*/
+    height:236pt;
     /* position:relative; */
     font-family: "ヒラギノ角ゴシック W3", sans-serif;
+    display: flexbox;
 }
 
 .header2-text {
     /* position:absolute; 
     top: 72pt;
     left:140pt; */
-    margin-top: 72pt;
-    margin-left: 140pt;
+    /*margin-top: 38pt;*/
+    margin-left: 48pt;
+    margin-right: 16pt;
     float:left;
-    width: 378pt;
+    width: 181pt;
+    order: 1;
 }
 
 .header2-text h3 {
     font-size:26pt; 
     font-weight: normal;
-    margin: 0 auto 16pt 0;
+    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    /*margin: 0 auto 16pt 0;*/
+    margin-top: 38pt;
 }
 
 .header2-text p {
     font-size: 10pt;
+    display: none;
+    float: left;
 }
 
 .header2-img {
@@ -221,18 +431,20 @@ body {
     top: 48pt; 
     left: 534pt; */
     padding-left: 16pt;
-    padding-top: 48pt;
-    margin-right: 203pt;
-    float: left;
+    padding-top: 11pt;
+    /*margin-right: 203pt;*/
+    /*float: left;*/
+    order: 2;
 }
 .header2-img img{
-    width: 76pt;
-    height: 100pt;
+    width: 90pt;
+    height: 120pt;
 }
 
 .header2-send {
-    padding-top: 57pt;
+    padding-top: 1pt;
     text-align:center; 
+    order: 3;
 }
 
 .header2-send img {
@@ -259,7 +471,7 @@ body {
 .main{
     position:relative;
     text-align:center;
-    width:1280pt;
+    width:375pt;
     height:1401pt;/* 1351 + 50ぐらい*/
 }
 
@@ -335,8 +547,8 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     /*position: absolute;
     top: 0;
     left: 0;*/
-    width: 1044pt;
-    height: 355pt;/* 325+24+6 */
+    width: 325pt;
+    height: 1254pt;
     margin-top: 56pt;
     margin-left: auto;
     margin-right: auto;
@@ -354,29 +566,38 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .slide-text {
     text-align: left;
-    float: left;
+    /*float: left;*/
     color: #000000;
+    display: flexbox;/*smartphone*/
 }
 
 .slide-text img {
-    padding-top: 56pt;
+    /*padding-top: 56pt;*/
     padding-left: 0.5pt;
-    padding-bottom: 16pt;
-    width: 72pt;
-    height: 16pt;
+    padding-bottom: 8pt;
+    width: 56pt;
+    height: 14pt;
+    order: 2;
 }
 
 .slide-text h3 {
     font-size: 22pt;
+    order: 1;
 }
 
 .slide-text h4 {
     font-size: 18pt;
+    display: none;/*smartphone*/
+}
+
+#slide-img-phone {
+    width: 295pt;
+    height: 150pt;
 }
 
 .slide-description {
-    width: 240pt;
-    height: 97pt;
+    width: 295pt;
+    height: 72pt;
     /*float: left;*/
 }
 
@@ -394,6 +615,10 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 .slide-img img {
     width: 640pt;
     height: 325pt;
+}
+
+#slide-img-pc {
+    display:none; /*smartphone*/
 }
 
 .slide-arrow {
@@ -439,8 +664,8 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     margin-top: 120pt;
     margin-left: auto; /* 左右常に中央寄せ */
     margin-right: auto;
-    width: 600pt;
-    height: 572pt;
+    width: 327pt;
+    height: 524pt;
     text-align: center;
 }
 
@@ -449,10 +674,10 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width:120pt;
-    height:120pt;
+    width:100pt;
+    height:100pt;
     /*margin-top: 120pt;*/
-    z-index: 20;
+    z-index: 21;
 }
 
 .howto {
@@ -461,24 +686,24 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     left:50%;
     /*transform: translate(-50%, 0);*/
     transform: translateX(-50%);
-    width:600pt;
-    height:512pt;
+    width:327pt;
+    height:524pt;
     box-shadow: 0 0 15pt #808080;
-    padding-top:100pt;
-    padding-left:64pt;
+    padding-top:50pt;
+    padding-left:24pt;
     margin-left: auto;
     margin-right: auto;
-    text-align:left;
-    z-index: 10;
+    text-align:center;
+    z-index: 20;
 }
 
 .howto h3{
-    font-size:18pt;
+    font-size:16pt;
 }
 
 .howto dl {
     text-align:left;
-    width: 458pt;
+    width: 279pt;
 }
 
 .howto dt {
@@ -491,33 +716,142 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .howto dd {
     font-size:14pt;
-    font-family:"Hiragino Kaku Gothic W3";
+    font-family:"ヒラギノ角ゴシック W3",sans-serif;
 }
 
 .howto a {
     color: #0095D9;
 }
 
-
-.permission a {
-    /*position: relative;*/
-    position: absolute; 
-    top: 1305pt;/* 1255 + てきとう50*/
+#js-show-popup {
+    position: absolute;
+    top: 1305pt;
     left: auto;
     transform: translateX(-50%);
-    width: 176pt;
+    width: 212pt;
     height: 32pt;
     font-size: 12pt;
     border-radius: 4pt;
     border: 1pt solid #2c2c2c;
     text-decoration: none;
-    color: #000000;
+    color: #2c2c2c;
+    padding-top: 10pt;
+    font-family: "ヒラギノ角ゴシック W3", sans-serif;
+    background-color: #FFFFFF;
+}
+
+/*モーダル用  https://tech-dig.jp/js-modal/  */
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: .6s;
+  }
+  .popup.is-show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .popup-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    max-width: 600px;
+    padding: 50px;
+    background-color: #fff;
+    z-index: 2;
+  }
+  .popup-inner img {
+    width: 100%;
+  }
+  .close-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .close-btn i {
+    font-size: 20px;
+    color: #333;
+  }
+  .black-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    z-index: 1;
+    cursor: pointer;
+  }
+/*ここまでモーダル用*/
+
+/*モーダルの中身*/
+
+.modal {
+    text-align: center;
+    padding-top: 44pt;
+    width: 355pt;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.modal img {
+    width: 36pt;
+    height: 36pt;
+}
+
+.modal h3 {
+    font-size: 16pt;
+}
+
+.modal p {
+    font-size: 14pt;
+    text-align: left;
+    font-family: "ヒラギノ角ゴシック W3", sans-serif;
+    width: 80%;/*295pt;*/
+    margin-left: auto;
+}
+
+.close {
+    width: 307pt;
+    height: 32pt;
+    border-radius: 4pt;
+    border: 1pt solid #2c2c2c;
+    font-family: "ヒラギノ角ゴシック W6",sans-serif;
+    background-color: #FFFFFF;
+}
+
+/* ここまでモーダル中身*/
+.permission a {
+    /*position: relative;*/
+    position: absolute; 
+    top: 1305pt;/* 1255 + てきとう50, 一番上からの距離 */
+    left: auto;
+    transform: translateX(-50%);
+    width: 212pt;
+    height: 32pt;
+    font-size: 12pt;
+    border-radius: 4pt;
+    border: 1pt solid #2c2c2c;
+    text-decoration: none;
+    color: #2c2c2c;
     padding-top: 10pt;
 }
 
 /* FAQ */
 .faq{
-    width:1280pt;
+    width: 375pt;
     height:806pt;
     background-color:#F5F5F5;
     text-align:center;
@@ -527,7 +861,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .faqs {
     font-family: "ヒラギノ角ゴシック W3",sans-serif;
-    width: 800pt;
+    width: 327pt;
     /*position: absolute; */
     margin-top: 32pt;
     margin-right: auto;
@@ -542,10 +876,11 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     width: 14pt;
     height: 20pt;
     padding-right: 16pt;
+    /*padding-bottom: 50pt; /* 文章回り込ませないため下にスペース確保 */
 }
 
 .faq h3 {
-    font-size: 22pt;
+    font-size: 16pt;
 }
 
 .faq-check{
@@ -554,7 +889,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .faq-border{
     height: 0;
-    width: 800pt;
+    width: 327pt;
     border-top: 1pt solid #CACACA;
 }
 
@@ -569,22 +904,37 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 .faq-label{
     display: block;
     margin-bottom: 1px;
-    padding-top: 48pt;
-    padding-bottom: 48pt;
+    padding-top: 33pt;
+    /*padding-bottom: 33pt;*//*これがあるとムダに長い*/
     margin-right: 16pt;
-    margin-left: 27pt;
+    margin-left: 8pt;
     /*width: 704pt;*/
-    width: 774pt;
+    width: 327pt;
+    height: 108pt;
     font-size: 16pt;
     text-align: left;
     /*border-top: 1pt solid #CACACA; */
 }
 
+.faq-label img {
+    vertical-align: top;
+    float:left;
+}
 
+.faq-label p {
+    float:left; 
+    width: 241pt;   
+}
+
+#faq-checkbox {
+    width: 18pt;
+    height: 18pt;
+    float: right;
+}
 
 .faq-checkbox {
-    width: 24pt;
-    height: 24pt;
+    width: 18pt;
+    height: 18pt;
     float: right;
 }
 
@@ -597,11 +947,11 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .faq-content {
     border: 0px solid #333;
-    width: 704pt;
+    width: 241pt;
     height: 0;
     opacity: 0;
     /*padding: 10px;*/
-    margin-left: 27pt;
+    margin-left: 8pt;
     transition: .5s;
     visibility: hidden;
 }
@@ -610,19 +960,23 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     width: 14pt;
     height: 17pt;
     padding-right: 16pt;
-    margin-bottom: 21pt;/* 隣のAが下に回り込まないように調整 */
+    /*margin-bottom: 21pt;/* 隣のAが下に回り込まないように調整 */
     float: left;
 }
 
 .faq-content p {
-    width: 704pt;
-    height: 38pt;
+    width: 241pt;
+    height: 86pt;
     font-size: 14pt;
     text-align: left;
 }
 
+#faq-form {
+    color: #0095D9;
+}
+
 .faq-check:checked + .faq-label + .faq-content {
-    height: 38pt;/* 文字数に合わせて変化させるには? */
+    height: 86pt;/* 文字数に合わせて変化させるには? */
     opacity: 1;
     /*padding: 10px;*/
     padding-bottom: 48pt;
@@ -632,9 +986,10 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .morefaq {
     padding-top: 48pt;
-    width: 800pt;
+    width: 375pt;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 64pt;
     /*border-top: 1pt solid #CACACA;*/
     text-align: center;
 }
@@ -642,7 +997,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 .morefaq a {
     font-size: 12pt;
     width: 176pt; 
-    height: 22pt; /* 32-10 */
+    height: 32pt; /* 32-10 */
     border-radius: 4pt;
     display: inline-block;
     border: 1pt solid #2c2c2c;
@@ -653,8 +1008,8 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 /* footer */
 .footer {
-    width:1280pt;
-    height:175pt;
+    width:375pt;
+    height:501pt;
     background-color:#00475A;
     position:relative;
     color: #FFFFFF;
@@ -662,17 +1017,22 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .footer p {
     position:absolute;
-    top: 57pt; 
-    left: 128pt;
+    top: 124pt; 
+    left: 32pt;
     font-size: 12pt;
     margin-right: 40pt;
 }
 
 .links1 {
     position: absolute;
-    top: 56pt; 
-    left: 232pt;
+    top: 185pt; 
+    left: 32pt;
     float: left;
+    width: 311pt;
+    border-top: 1pt solid #FFFFFF;
+    border-bottom: 1pt solid #FFFFFF;
+    padding-top: 32pt;
+    padding-bottom: 31pt;
 }
 
 .links1 a {
@@ -680,7 +1040,12 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     font-size: 14pt;
     color: #FFFFFF;
     font-family: "Hiragino Kaku Gothic Pro",serif;
-    margin-right: 32.9pt;
+    margin-right: 8pt;/*32.9pt;*/
+    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+}
+
+.nabo {
+    margin-right: 0;
 }
 
 .links1 img { 
@@ -689,40 +1054,42 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .links2 {
     position: absolute; 
-    top: 53pt; 
-    left: 1044pt;
+    top: 56pt; 
+    left: 106pt;
     float:left;
 }
 
 .links2 a {
-    margin-right: 24pt;
+    margin-right: 40pt;
 }
 
 .insta .line {
-    width: 20pt;
-    height: 20pt;
+    width: 28pt;
+    height: 28pt;
 }
 
 .tw {
-    width: 20pt;
-    height: 16.25pt;
+    width: 28pt;
+    height: 22.75pt;
 }
 
 .others{
     position: absolute; 
-    top: 93pt;
-    left: 128pt;
-    width: 1024pt; 
-    height: 81pt;
-    border-top: 1pt solid #FFFFFF;
+    top: 271pt;
+    left: 0;/*32pt;*/
+    width: 375pt; 
+    height: 270pt;
     position: relative;
 }
 
 .otherlinks {
     position: absolute; 
     top: 24pt;
-    left: 0;
+    left: 32pt;
     float: left;
+    width: 311pt;
+    display: flex;/*smartphone*/
+    flex-wrap: wrap;/*smartphone*/
 }
 
 .otherlinks a {
@@ -731,12 +1098,15 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     font-size: 10pt;
     font-family: "ヒラギノ角ゴシック W3",sans-serif;
     margin-right: 16pt;
+    flex: auto;/*smartphone*/
+    width: 100pt;/*smartphone*/
+    height: 35pt;
 }
 
 .copyright {
     position: absolute; 
-    top: 24pt;
-    right: 0;
+    bottom: 71pt;/*39 + 32*/
+    right: 32pt;
     float: right;
     font-size: 9pt;
     font-family: "ヒラギノ角ゴシック W3", sans-serif;
@@ -744,14 +1114,3 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 }
 
 
-/* スマートフォン向けレイアウト */
-@media (max-width:670px){
-    .flex-list {
-        flex-direction: column;
-    }
-    
-    .flex-list li{
-        margin: 0 auto;
-    }
-
-}
