@@ -475,160 +475,135 @@ body {
     height:1401pt;/* 1351 + 50ぐらい*/
 }
 
-
-/* スライドショー部分 */
-
-/* ここからコピペ  https://csshtml.work/css-only-select-slide/  */
-
-.out{
-    position: relative;
+#five-step { 
+    display: block;/*ブロック要素化*/
+    margin-top: 56pt;
+    margin-left: 40pt;
+    width: 56pt;
+    height: 14pt;
+    margin-right: auto;/*ブロック要素を左寄せ*/
 }
 
-/*  後述
-.slide-text {
+.main h3 {
+    display: block;
+    font-size: 22pt;
+    width: 138pt;
+    height: 22pt;
+    margin-top: 8pt;
+    margin-left: 40pt;
+}
+
+/* スライドショー https://coliss.com/articles/build-websites/operation/css/css-only-slider.html */
+.slider .slides {
+    box-sizing: border-box;/*margin 等をwidth 内に収める*/
+}
+
+.slider {
+    width: 295pt;
+    /*height: 510pt;*/
+    text-align: left;
+    overflow: hidden;/*はみ出た要素の表示形式*/
+    margin-left: 40pt;
+}
+
+.slides {
+    display: flex;/*各スライドを横一列に並べるため*/
+    
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;/*スワイプ機能*/
+    /*
+    scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory;
+    */
+    width: 295pt;
+}
+
+.slides::-webkit-scrollbar {
+    width: 10pt;
+    height: 10pt;
+}
+.slides::-webkit-scrollbar-thumb {/* スクロールバー（右） */
+    background: black;
+    border-radius: 10pt;
+    display: none;
+}
+.slides::-webkit-scrollbar-track {/* 謎 */
+    background: transparent;
+}
+
+.slides > div {/* slides 直下のdiv にのみ適用される: slide-1 - slide-4 */
+    scroll-snap-align: start;/*start; center; end*/
+    flex-shrink: 0;
+    width: 295pt;
+    height: 350pt;
+    margin-right: 50pt;
+    border-radius: 10pt;
+    /*background: #eee;*/
+    transform-origin: center center;
+    transform: scale(1);/*1倍スケール（意味ある?）*/
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;/*これ消すと普通の表示になる*/
+    justify-content: center;
+    align-items: center;
+    /*font-size: 100px;*/
+    font-size: 16pt;
+}
+
+.slides h3 {
+    font-size: 22pt;
+}
+
+.slides h4 {
+    display: none;
+}
+
+.slides img {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
-    transition: .3s;
-}
-*/
-
-.in label {
-    text-decoration: none;
-}
-
-
-#imvisibleinput {
-    display: none;
-}
-.in {
-    display: flex;
-    justify-content: center;
-    height: 355pt;
-}
-
-label span{
-    display: block;
-    width: 15px;
-    height: 15px;
-    padding: 7px;
-    margin: -40px 0 0;
-    border-radius: 100%;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-}
-label span::before{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #4287f5;
-    opacity: 0.5;
-    border-radius: 100%;
-}
-
-label input:checked + span::before{
-    background: #000;
-    opacity: 1;
-}
-
-/*label input:checked ~ img,label input:checked ~ a img{*/
-label input:checked ~ .slide,label input:checked ~ a .slide{
-    opacity: 1;
-    z-index: 1;
-}
-
-/* ここまでコピペ */
-
-
-.slide {
-    /*position: absolute;
-    top: 0;
-    left: 0;*/
-    width: 325pt;
-    height: 1254pt;
-    margin-top: 56pt;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40pt;
-    text-align: left;
-    /* ここからコピペ */
-    position: absolute;
-    top: 0;
-    left: auto;/* 0から変更*/
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: .3s;
-    /* ここまでコピペ */
-}
-
-.slide-text {
-    text-align: left;
-    /*float: left;*/
-    color: #000000;
-    display: flexbox;/*smartphone*/
-}
-
-.slide-text img {
-    /*padding-top: 56pt;*/
-    padding-left: 0.5pt;
-    padding-bottom: 8pt;
-    width: 56pt;
-    height: 14pt;
-    order: 2;
-}
-
-.slide-text h3 {
-    font-size: 22pt;
-    order: 1;
-}
-
-.slide-text h4 {
-    font-size: 18pt;
-    display: none;/*smartphone*/
-}
-
-#slide-img-phone {
     width: 295pt;
     height: 150pt;
 }
 
-.slide-description {
-    width: 295pt;
-    height: 72pt;
-    /*float: left;*/
-}
-
-.slide-description p {
+.slides p {
     font-size: 16pt;
+    position: absolute;
+    top: 212pt;/*150+62*/
+    left: 0;
     font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    display: inline-block;
+    width: 295pt;
 }
+.slider > a {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+}
+.slider > a:active {
+    top: 1px;
+}
+.slider > a:focus {
+    background: #000;
+}
+/* Don't need button navigation */
+/*@supports (scroll-snap-type) {
+    .slider > a {
+      display: none;
+    }
+}
+/* ここまで */
 
-.slide-img {
-    padding-left: 120pt;
-    padding-right: 24pt;
-    float: left;
-}
-
-.slide-img img {
-    width: 640pt;
-    height: 325pt;
-}
-
-#slide-img-pc {
-    display:none; /*smartphone*/
-}
-
-.slide-arrow {
-    padding-top: 160pt;
-}
-
-.slide-arrow  img {
-    width: 20pt;
-    height: 40pt;
-}
 
 
 
@@ -638,10 +613,10 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 }
 
 #search-price  {
-    position: absolute;
+    /*position: absolute;
     top: 451pt;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);*/
     font-size: 16pt;
     text-decoration:none; 
     width: 327pt; 
@@ -654,6 +629,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     /* margin-bottom: 120pt;*/
     color: #000000;
     font-family: "ヒラギノ角ゴシック W3";
+    text-align: center;
 }
 
 /* 本と一緒に，ご準備ください　のあたり */
@@ -661,8 +637,8 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 .howto-div {
     position:relative; 
     top: 120pt;/* 測れなかったのでここはてきとう */
-    margin-top: 120pt;
-    margin-left: auto; /* 左右常に中央寄せ */
+    /*margin-top: 120pt;*/
+    margin-left: 24pt; /* 左右常に中央寄せならleft もright もauto */
     margin-right: auto;
     width: 327pt;
     height: 524pt;
@@ -699,6 +675,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .howto h3{
     font-size:16pt;
+    width: 208pt;
 }
 
 .howto dl {
@@ -813,6 +790,9 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .modal h3 {
     font-size: 16pt;
+    width: 176pt;
+    margin-right: auto;
+    margin-left: auto; 
 }
 
 .modal p {
@@ -821,6 +801,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     font-family: "ヒラギノ角ゴシック W3", sans-serif;
     width: 80%;/*295pt;*/
     margin-left: auto;
+    margin-right: auto;
 }
 
 .close {
@@ -855,7 +836,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     height:806pt;
     background-color:#F5F5F5;
     text-align:center;
-    padding-top: 120pt;
+    padding-top: 64pt;/*120pt;*/
     /* position: relative; */
 }
 
