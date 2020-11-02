@@ -265,8 +265,127 @@ body {
 
 
 /* スライドショー部分 */
+/* スライドショー https://coliss.com/articles/build-websites/operation/css/css-only-slider.html */
+.slider .slides {
+    box-sizing: border-box;/*margin 等をwidth 内に収める*/
+}
 
-/* ここからコピペ  https://csshtml.work/css-only-select-slide/  */
+.slider {
+    width: 1044pt;
+    /*height: 510pt;*/
+    text-align: left;
+    overflow: hidden;/*はみ出た要素の表示形式*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slides {
+    display: flex;/*各スライドを横一列に並べるため*/
+    
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;/*スワイプ機能*/
+    /*
+    scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory;
+    */
+    width: 1044pt;
+}
+
+.slides::-webkit-scrollbar {
+    width: 10pt;
+    height: 10pt;
+}
+.slides::-webkit-scrollbar-thumb {/* スクロールバー（右） */
+    background: black;
+    border-radius: 10pt;
+    display: none;
+}
+.slides::-webkit-scrollbar-track {/* 謎 */
+    background: transparent;
+}
+
+.slides > div {/* slides 直下のdiv にのみ適用される: slide-1 - slide-4 */
+    scroll-snap-align: start;/*start; center; end*/
+    flex-shrink: 0;
+    width: 1044pt;
+    height: 443pt;
+    margin-right: 50pt;
+    border-radius: 10pt;
+    /*background: #eee;*/
+    transform-origin: center center;
+    transform: scale(1);/*1倍スケール（意味ある?）*/
+    transition: transform 0.5s;
+    position: relative;
+    /*display: flex;/*これ消すと普通の表示になる*/
+    /*justify-content: center;*/
+    align-items: center;
+    /*font-size: 100px;*/
+    font-size: 16pt;
+}
+
+.slides h3 {
+    font-size: 22pt;
+    margin-top: 16pt;
+}
+
+.slides h4 {
+    font-size: 18pt;
+    margin-top: 56pt;
+}
+
+#five-step {
+    width: 72pt;
+    height: 16pt;
+    margin-top: 56pt;
+}
+
+#slide-img-phone {
+    position: absolute;
+    top: 0;
+    left: 360pt;
+    width: 640pt;
+    height: 325pt;
+}
+
+.slides p {
+    font-size: 16pt;
+    position: absolute;
+    top: 208pt;
+    left: 0;
+    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    display: inline-block;
+    width: 240pt;
+}
+.slider > a {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+}
+.slider > a:active {
+    top: 1px;
+}
+.slider > a:focus {
+    background: #000;
+}
+/* Don't need button navigation */
+/*@supports (scroll-snap-type) {
+    .slider > a {
+      display: none;
+    }
+}
+/* ここまで */
+
+/* 旧ここからコピペ  https://csshtml.work/css-only-select-slide/  */
 
 .out{
     position: relative;
