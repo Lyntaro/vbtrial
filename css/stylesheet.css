@@ -3,6 +3,7 @@
 
 /* フォント情報など */
 body {
+    width: 100%;
     font-family:"ヒラギノ角ゴシック W6","Hiragino Kaku Gothic W6","ヒラギノ角ゴ ProN W6","Hiragino Kaku Gothic ProN W6", sans-serif;
     font-weight:100;
 }
@@ -569,9 +570,9 @@ body p {
 #modal-content {
     overflow: auto;
     position: fixed;
-    top: 10pt;
-    left: auto;
-    right: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 10010;
     width: 640pt;
     height: 560pt;
@@ -613,10 +614,10 @@ body p {
     display: block;
     animation: fadein 1.0s;
     /*transform: translateY(0%);*/
-    box-shadow: 6pt 0 25pt rgba(0,0,0,15);
+    box-shadow: 6pt 0 25pt rgba(0,0,0,55);
 
 }
-@keyframes fadein{/*fadein を定義*/
+@keyframes fadein{/*fadein を定義*//*参考：https://pisuke-code.com/css-show-elem-when-checked/*/
     from{ opacity: 0; }
     to{ opacity: 1; }
 }
@@ -637,6 +638,17 @@ body p {
     margin-top: 40pt;
     margin-left: auto;
     margin-right: auto;
+}
+
+#modal-close-icon {
+    position: absolute;
+    top: 24pt;
+    left: 596pt;
+}
+
+#modal-close-icon img {
+    width: 20pt;
+    height: 20pt;
 }
 
 /*ここまでモーダル用*/
