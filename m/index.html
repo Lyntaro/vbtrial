@@ -2,15 +2,27 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>PC_買取案内ページ</title>
+        <!--スマホ用-->
+        <meta name="viewport"
+        content="width=device-width,
+           height=device-width,
+           initial-scale=1.0,
+           minimum-scale=1.0,
+           maximum-scale=2.0,
+           user-scalable=yes" />
+        <!--スマホ用ここまで-->
+        <title>m_買取案内ページ</title>
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"><!--モーダル用-->
         <link rel="stylesheet" href="css/stylesheet.css">
     </head>
     <body>
         <div class="header">
-            <a class="logo" href="https://www.valuebooks.jp/">
-                <img src="images/logo.svg">
-            </a>
-            <!--<div class="menus"> -->
+            <div class="logo-div"><!--スマホ用に追加-->
+                <a class="logo" href="https://www.valuebooks.jp/">
+                    <img src="images/logo_sp.svg">
+                </a>
+            </div>
+            <div class="menus">
                 <a class="menu kaitori" href="">
                     <img src="images/icon_purchase.svg">
                     <p>買取申込み</p>
@@ -23,18 +35,57 @@
                     <img src="images/icon_endpaper.svg">
                     <p>読みもの</p>
                 </a>
-            <!--</div> -->
-        </div>
+            </div><!--logo-div-->
+            <div id="nav-drawer"><!-- ハンバーガーメニュー -->
+                <input id="nav-input" type="checkbox" class="nav-unshown">
+                <!--<label id="nav-open" for="nav-input"><span></span></label>-->
+                <label id="nav-open" for="nav-input"><img src="images/icon_menu.svg"></label>
+                <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+                <div id="nav-content">
+                    <label class="nav-icon-opened" id="nav-icon-opened" for="nav-input"><img src="images/btn_close.svg"></label>
+                    <div class="nav-menus">
+                        <a class="menu kaitori nav-menu" href="">
+                            <img src="images/icon_purchase.svg">
+                            <p>買取申込み</p>
+                        </a>
+                        <a class="menu library nav-menu" href="">
+                            <img src="images/icon_library.svg">
+                            <p>ライブラリ</p>
+                        </a>
+                        <a class="menu yomimono nav-menu" href="">
+                            <img src="images/icon_endpaper.svg">
+                            <p>読みもの</p>
+                        </a>        
+                    </div><!--nav-menus-->
+                    <div class="nav-othermenus">
+                        <a class="nav-othermenu" href="#">おためし査定</a>
+                        <a class="nav-othermenu" href="#">よくある質問</a>
+                        <a class="nav-othermenu" href="#">お問い合わせ</a>
+                        <a class="nav-othermenu" href="#">ログアウト</a>
+                    </div>
+                    <a class="btn nav-login" href="#">ログイン</a>
+                    <a class="btn nav-signup" href="#">新規登録</a>
+                </div><!--nav-content-->
+            </div><!--nav-drawer-->    
+        </div><!--header-->
         <div class="search">
             <input id="search-box" type="text" placeholder="気になる本を検索">
             <button id="search-submit"><img src="images/icon_search.svg"></button>
+            <button id="search-camera"><img src="images/camera.svg"></button>
         </div>
         <div class="login">
             <a class="btn btn-login" href="#">ログイン</a>
+            <a class="btn-login-phone" href="#"><img src="images/icon_login-mypage.svg"></a>
         </div>
         <div class="signup">
             <a class="btn btn-signup" href="#">新規登録</a>
+            <a class="btn-cart-phone" href="#"><img src="images/icon_cart.svg"></a>
         </div>
+        <!--
+        <div class="humberger">
+            <a class="btn-humberger-phone" href="#"><img src="images/icon_menu.svg"></a>
+        </div>
+        -->
 
         <div class="header2">
             <div class="header2-text">
@@ -51,17 +102,12 @@
                 </div>
                 <a href="#">今すぐ本を送る</a>
             </div>
-
-            <!--
-            <div class="header2-btn">
-                <img src="images/pickup.svg">
-                <a class="btn-send" href="#">今すぐ本を送る</a>
-            </div>
-            -->
-
         </div>
 
         <div class="main">
+            <img id="five-step" src="images/5step.svg">
+            <h3>ご利用の流れ</h3>
+
             <div class="slider">
                 <a href="#slide-1">1</a>
                 <a href="#slide-2">2</a>
@@ -71,17 +117,13 @@
                
                 <div class="slides">
                     <div id="slide-1">
-                        <img id="five-step" src="images/5step.svg">
-                        <h3>ご利用の流れ</h3>
                         <h4>1.おためし査定をする</h4>
-                        <img id="slide-img-phone" src="images/step_ph_1/step_ph_1@3x.png">
+                        <img id="slide-img-phone" src="images/step_ph_phone_1/step_ph_1@3x.png">
                         <div class="slide-description">
                             <p>スマホで本の背表紙を撮るだけで、まとめて本の査定額がわかります。バーコード撮影で1冊ずつ調べることもできます。</p>
                         </div>
                     </div><!--slide-1-->
                     <div id="slide-2">
-                        <img id="five-step" src="images/5step.svg">
-                        <h3>ご利用の流れ</h3>
                         <h4>2.本の値段をCheck!</h4>
                         <img id="slide-img-phone" src="images/step_ph_2/step_ph_2@3x.png">
                         <div class="slide-description">
@@ -89,8 +131,6 @@
                         </div>
                     </div><!--slide-2-->
                     <div id="slide-3">
-                        <img id="five-step" src="images/5step.svg">
-                        <h3>ご利用の流れ</h3>
                         <h4>3.箱に詰める</h4>
                         <img id="slide-img-phone" src="images/step_ph_3/step_ph_3@3x.png">
                         <div class="slide-description">
@@ -98,8 +138,6 @@
                         </div>
                     </div><!--slide-3-->
                     <div id="slide-4">
-                        <img id="five-step" src="images/5step.svg">
-                        <h3>ご利用の流れ</h3>
                         <h4>4.集荷を申し込む</h4>
                         <img id="slide-img-phone" src="images/step_ph_4/step_ph_4@3x.png">
                         <div class="slide-description">
@@ -107,8 +145,6 @@
                         </div>
                     </div><!--slide-4-->
                     <div id="slide-5">
-                        <img id="five-step" src="images/5step.svg">
-                        <h3>ご利用の流れ</h3>
                         <h4>5.査定完了！即入金</h4>
                         <img id="slide-img-phone" src="images/step_ph_5/step_ph_5@3x.png">
                         <div class="slide-description">
@@ -117,8 +153,7 @@
                     </div><!--slide-5-->
                   </div><!--slides-->
             </div><!--slider-->                                            
-
-            <a id="search-price" href="#"><img id="search-price-img" src="images/icon_camera.svg"><img id="search-price-img-hover" src="m/images/camera.svg">本の値段を調べる</a>
+            <a id="search-price" href="#"><img id="search-price-img" src="images/icon_camera.svg">本の値段を調べる</a>
 
             <div class="howto-div">
                 <img id="cardboard" src="images/preparation/preparation@3x.png">
@@ -127,7 +162,7 @@
                     <dl>
                         <dt>ダンボール</dt>
                         <dd>おひとりで持ち上げられるサイズのもの。（縦・横・高さの合計が160cm以内、 25kgまで）</dd>
-                        <dt>本人確認書類</dt>
+                        <dt>本人確認書類<span style="font-size: 75%;">　※初回のみ</span></dt>
                         <dd>申し込み時にアップロード、もしくはコピーを荷物に同梱ください。 </dd>
                         <dd>
                             <a href="">利用できる身分証はこちら</a>
@@ -137,28 +172,32 @@
                     </dl>
                 </div><!--howto-->
             </div><!--howto-div-->
+            <button id="js-show-popup">買い取れない本について</button>
+            <!--
             <div class="permission">
-                <!--<a href="#">買い取れない本について</a>-->
-
-                <!--モーダル-->
-                <input id="modal-input" type="checkbox" class="modal-unshown">
-                <label id="modal-open" for="modal-input">買い取れない本について</label>
-                <label class="modal-unshown" id="modal-close" for="modal-input"></label>
-                <div id="modal-content">
-                    <img src="images/icon_risk.svg">
-                    <h3>買い取れない本について</h3>
-                    <p>【本】<br>
-                        週刊誌・新聞、漫画雑誌・コンビニ漫画、漫画喫茶・レンタル落ち、同人誌・個人出版の本、「児童買春・児童ポルノ禁止法」(関連法令含む)に抵触する恐れのある全ての商品
-                    </p>
-                    <p>【ゲーム及びDVD、CD】<br>
-                        起動しない本体・ソフト、ケースが欠品しているソフト、違法なもの、ゲーム周辺機器、規格品番がないもの、シングルCD、ディスクがひどく傷ついてしまっているDVD・CD、ケースが欠品しているDVD・CD、ディスクが欠品しているDVD・CD、海賊版・コピー・サンプル版、「児童買春・児童ポルノ禁止法」(関連法令含む)に抵触する恐れのある全ての商品
-                    </p>
-                    <p>【同じタイトルの商品の取り扱いについて】<br>
-                        同一タイトルはお一人様10点までお受けしております。
-                    </p>
-                    <label id="modal-close-button" for="modal-input">閉じる</label>
-                </div><!--modal-content-->
-            </div><!--permission-->
+                <a href="#">買い取れない本について</a>
+            </div>
+            -->
+            <div class="popup" id="js-popup">
+                <div class="popup-inner">
+                    <div class="close-btn" id="js-close-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <!--ここからモーダルの中身-->
+                    <div class="modal">
+                        <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+                        <img src="images/icon_risk.svg">
+                        <h3>買い取れない本について</h3>
+                        <p>【本】<br> 週刊誌・新聞、漫画雑誌・コンビニ漫画、漫画喫茶・レンタル落ち、同人誌・個人出版の本、「児童買春・児童ポルノ禁止法」(関連法令含む)に抵触する恐れのある全ての商品 <br><br>
+                            【ゲーム及びDVD、CD】<br> 起動しない本体・ソフト、ケースが欠品しているソフト、違法なもの、ゲーム周辺機器、規格品番がないもの、シングルCD、ディスクがひどく傷ついてしまっているDVD・CD、ケースが欠品しているDVD・CD、ディスクが欠品しているDVD・CD、海賊版・コピー・サンプル版、「児童買春・児童ポルノ禁止法」(関連法令含む)に抵触する恐れのある全ての商品 <br><br>
+                            【同じタイトルの商品の取り扱いについて】<br> 同一タイトルはお一人様10点までお受けしております。
+                        </p>
+                        <button class="close" id="js-close">閉じる</button>
+                    </div>
+                </div>
+                <div class="black-background" id="js-black-bg">
+                </div>
+            </div><!--popup-->
         </div><!--main-->
 
         <div class="faq">
@@ -167,8 +206,7 @@
                 <div class="faq-border"></div>
                 <input id="faq-check1" class="faq-check" type="checkbox">
                 <label class="faq-label" for="faq-check1">
-                    <img src="images/question.svg">
-                    一度の申込みで送れるのは何箱まで？
+                    <p><img src="images/question.svg">一度の申込みで送れるのは何箱まで？</p>
                     <div class="faq-checkbox"><img src="images/btn_accordion.svg"></div>
                 </label>
                 <div class="faq-content">
@@ -178,8 +216,7 @@
                 <div class="faq-border"></div>
                 <input id="faq-check2" class="faq-check" type="checkbox">
                 <label class="faq-label" for="faq-check2">
-                    <img src="images/question.svg">
-                    申込み後に集荷のキャンセルはできる？
+                    <p><img src="images/question.svg">申込み後に集荷のキャンセルはできる？</p>
                     <div class="faq-checkbox"><img src="images/btn_accordion.svg"></div>
                 </label>
                 <div class="faq-content">
@@ -189,8 +226,7 @@
                 <div class="faq-border"></div>
                 <input id="faq-check3" class="faq-check" type="checkbox">
                 <label class="faq-label" for="faq-check3">
-                    <img src="images/question.svg">
-                    箱数の変更をしたい時は？
+                    <p><img src="images/question.svg">箱数の変更をしたい時は？</p>
                     <div class="faq-checkbox"><img src="images/btn_accordion.svg"></div>
                 </label>
                 <div class="faq-content">
@@ -232,6 +268,6 @@
             </div>
 
         </div>
-
+        <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>

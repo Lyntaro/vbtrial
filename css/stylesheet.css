@@ -3,8 +3,12 @@
 
 /* フォント情報など */
 body {
-    font-family:"ヒラギノ角ゴシック W6","Hiragino Kaku Gothic W6", sans-serif;
+    font-family:"ヒラギノ角ゴシック W6","Hiragino Kaku Gothic W6","ヒラギノ角ゴ ProN W6","Hiragino Kaku Gothic ProN W6", sans-serif;
     font-weight:100;
+}
+
+body p {
+    font-family:"ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN W3", sans-serif;
 }
 
 
@@ -14,6 +18,10 @@ body {
     height:80pt;
     background-color:#FFFFFF;
     /*position:relative;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:1000;
 }
 
 .logo{
@@ -129,9 +137,10 @@ body {
 
 /* 検索ボックス */
 #search-box{
-    position:absolute;
+    position:fixed;
     top:20pt;
     left:696pt;
+    z-index: 1001;
     width:320pt;
     height:40pt;
     padding-left: 12pt;/* +1文字分12pt */
@@ -139,15 +148,16 @@ body {
     border:none;
     outline:none;
     background:#F5F5F5;
-    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3",sans-serif;
 }
 
 #search-submit{
     width:20pt;
     height:20pt;
-    position:absolute;
+    position:fixed;
     top:30pt;
     left:980pt;
+    z-index: 1001;
     border: none;
 }
 
@@ -168,9 +178,10 @@ body {
 /* ログイン */
 
 .btn-login{
-    position:absolute;
+    position:fixed;
     top:28pt;
     left:1040pt;
+    z-index: 1001;
     color:#2C2C2C;
     background-color:#FFFFFF;
     border:1pt solid #2C2C2C;
@@ -179,9 +190,10 @@ body {
 /* 新規登録 */
 
 .btn-signup{
-    position:absolute;
+    position:fixed;
     top:28pt;
     left:1128pt;
+    z-index: 1001;
     color:#FFFFFF;
     background-color:#2C2C2C;
 }
@@ -193,7 +205,8 @@ body {
     width:1280pt;
     height:196pt;
     /* position:relative; */
-    font-family: "ヒラギノ角ゴシック W3", sans-serif;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3", sans-serif;
+    padding-top: 80pt;
 }
 
 .header2-text {
@@ -251,8 +264,15 @@ body {
     background-color: #0095D9;
     display:inline-block; 
     padding-top: 15pt;
+    transition-duration: .5s;
 }
 
+.header2-send a:hover {
+    transform: translateY(-5pt);
+    animation-name: hover;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+}
 
 /* メイン　*/
 
@@ -272,11 +292,12 @@ body {
 
 .slider {
     width: 1044pt;
-    /*height: 510pt;*/
+    height: 355pt;/*325 + 24 + 6*/
     text-align: left;
     overflow: hidden;/*はみ出た要素の表示形式*/
     margin-left: auto;
     margin-right: auto;
+    margin-top: 56pt;
 }
 
 .slides {
@@ -286,7 +307,7 @@ body {
     scroll-snap-type: x mandatory;
     
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;/*スワイプ機能*/
+    -webkit-overflow-scrolling: touch;/*スワイプ機能@webkit*/
     /*
     scroll-snap-points-x: repeat(300px);
     scroll-snap-type: mandatory;
@@ -307,7 +328,7 @@ body {
     background: transparent;
 }
 
-.slides > div {/* slides 直下のdiv にのみ適用される: slide-1 - slide-4 */
+.slides > div {/* slides 直下のdiv にのみ適用される: ここでは slide-1 to slide-4 */
     scroll-snap-align: start;/*start; center; end*/
     flex-shrink: 0;
     width: 1044pt;
@@ -355,7 +376,7 @@ body {
     position: absolute;
     top: 208pt;
     left: 0;
-    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3",sans-serif;
     display: inline-block;
     width: 240pt;
 }
@@ -385,157 +406,26 @@ body {
 }
 /* ここまで */
 
-/* 旧ここからコピペ  https://csshtml.work/css-only-select-slide/  */
-
-.out{
-    position: relative;
-}
-
-/*  後述
-.slide-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: .3s;
-}
-*/
-
-.in label {
-    text-decoration: none;
-}
-
-
-#imvisibleinput {
-    display: none;
-}
-.in {
-    display: flex;
-    justify-content: center;
-    height: 355pt;
-}
-
-label span{
-    display: block;
-    width: 15px;
-    height: 15px;
-    padding: 7px;
-    margin: -40px 0 0;
-    border-radius: 100%;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-}
-label span::before{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #4287f5;
-    opacity: 0.5;
-    border-radius: 100%;
-}
-
-label input:checked + span::before{
-    background: #000;
-    opacity: 1;
-}
-
-/*label input:checked ~ img,label input:checked ~ a img{*/
-label input:checked ~ .slide,label input:checked ~ a .slide{
-    opacity: 1;
-    z-index: 1;
-}
-
-/* ここまでコピペ */
-
-
-.slide {
-    /*position: absolute;
-    top: 0;
-    left: 0;*/
-    width: 1044pt;
-    height: 355pt;/* 325+24+6 */
-    margin-top: 56pt;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40pt;
-    text-align: left;
-    /* ここからコピペ */
-    position: absolute;
-    top: 0;
-    left: auto;/* 0から変更*/
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: .3s;
-    /* ここまでコピペ */
-}
-
-.slide-text {
-    text-align: left;
-    float: left;
-    color: #000000;
-}
-
-.slide-text img {
-    padding-top: 56pt;
-    padding-left: 0.5pt;
-    padding-bottom: 16pt;
-    width: 72pt;
-    height: 16pt;
-}
-
-.slide-text h3 {
-    font-size: 22pt;
-}
-
-.slide-text h4 {
-    font-size: 18pt;
-}
-
-.slide-description {
-    width: 240pt;
-    height: 97pt;
-    /*float: left;*/
-}
-
-.slide-description p {
-    font-size: 16pt;
-    font-family: "ヒラギノ角ゴシック W3",sans-serif;
-}
-
-.slide-img {
-    padding-left: 120pt;
-    padding-right: 24pt;
-    float: left;
-}
-
-.slide-img img {
-    width: 640pt;
-    height: 325pt;
-}
-
-.slide-arrow {
-    padding-top: 160pt;
-}
-
-.slide-arrow  img {
-    width: 20pt;
-    height: 40pt;
-}
-
-
-
 #search-price-img {
     width: 20pt;
     height: 20pt;
 }
 
+#search-price-img-hover {
+    width: 20pt;
+    height: 20pt;
+    transform: translateX(-100%);
+    background-color: #FFFFFF;
+    opacity: 0;
+    transition: 0.5s;
+}
+
 #search-price  {
-    position: absolute;
+    /*position: absolute;
     top: 451pt;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);*/
+    margin-top: 40pt;
     font-size: 16pt;
     text-decoration:none; 
     width: 327pt; 
@@ -547,14 +437,18 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     padding-bottom: 16pt;
     /* margin-bottom: 120pt;*/
     color: #000000;
-    font-family: "ヒラギノ角ゴシック W3";
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3",sans-serif;
+}
+
+#search-price:hover  #search-price-img-hover {
+    opacity: 1;
+    transition: 0.5s;
 }
 
 /* 本と一緒に，ご準備ください　のあたり */
 
 .howto-div {
     position:relative; 
-    top: 120pt;/* 測れなかったのでここはてきとう */
     margin-top: 120pt;
     margin-left: auto; /* 左右常に中央寄せ */
     margin-right: auto;
@@ -610,13 +504,17 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 
 .howto dd {
     font-size:14pt;
-    font-family:"Hiragino Kaku Gothic W3";
+    font-family:"ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3", sans-serif;
 }
 
 .howto a {
     color: #0095D9;
 }
 
+
+.permission{
+    text-align:center;
+}
 
 .permission a {
     /*position: relative;*/
@@ -634,6 +532,115 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     padding-top: 10pt;
 }
 
+/*ここからモーダル用*/
+.modal-unshown {
+    display: none;
+}
+
+#modal-open {/*モーダルを開くボタン*/
+    /*position: absolute;
+    top: 1305pt;
+    left: auto;
+    right: auto;*/
+    display: inline-block;
+    width: 176pt;
+    height: 22pt;/*32-10*/
+    border-radius: 4pt;
+    border: 1pt solid #2c2c2c;
+    font-size: 12pt;
+    padding-top: 10pt;
+    margin-top: 164pt;
+
+}
+
+#modal-close {/*閉じる用の薄黒カバー*/
+    display: none; /*はじめは隠しておく*/
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2c2c2c;
+    opacity: 70%;
+    transition: .3s ease-in-out;
+}
+
+#modal-content {
+    overflow: auto;
+    position: fixed;
+    top: 10pt;
+    left: auto;
+    right: auto;
+    z-index: 10010;
+    width: 640pt;
+    height: 560pt;
+    padding-top: 48pt;
+    text-align:center;
+    background: #f5f5f5;
+    transition: .3s ease-in-out;
+    /*-webkit-transform: translateX(-105%);*/
+    display: none;
+    animation: fadeout 1s;
+    /*transform: trnaslateY(-105%);*/
+}
+
+#modal-content img {
+    width: 36pt;
+    height: 30pt;
+}
+
+#modal-content h3 {
+    font-size: 16pt;
+    padding-top: 16pt;
+}
+
+#modal-content p {
+    text-align: left;
+    font-size: 14pt;
+    width: 576pt;
+    padding-left: 32pt;
+    padding-bottom: 14pt;
+}
+
+/*チェックが入ったら表示*/
+#modal-input:checked ~ #modal-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+}
+#modal-input:checked ~ #modal-content { 
+    /*-webkit-transform: translateX(0%);*/
+    display: block;
+    animation: fadein 1.0s;
+    /*transform: translateY(0%);*/
+    box-shadow: 6pt 0 25pt rgba(0,0,0,15);
+
+}
+@keyframes fadein{/*fadein を定義*/
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+@keyframes fadeout{/*fadeout を定義*/
+    from{ opacity: 1;}
+    to{ opacity: 0;}
+}
+
+#modal-close-button {/*モーダル内の閉じるボタン*/
+    display: block;
+    width: 320pt;
+    height: 22pt;/*32-10*/
+    border-radius: 4pt;
+    border: 1pt solid #2c2c2c;
+    font-size: 12pt;
+    padding-top: 10pt;
+    margin-top: 40pt;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*ここまでモーダル用*/
+
 /* FAQ */
 .faq{
     width:1280pt;
@@ -645,7 +652,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
 }
 
 .faqs {
-    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3",sans-serif;
     width: 800pt;
     /*position: absolute; */
     margin-top: 32pt;
@@ -848,7 +855,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     color: #FFFFFF;
     text-decoration: none;
     font-size: 10pt;
-    font-family: "ヒラギノ角ゴシック W3",sans-serif;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3",sans-serif;
     margin-right: 16pt;
 }
 
@@ -858,7 +865,7 @@ label input:checked ~ .slide,label input:checked ~ a .slide{
     right: 0;
     float: right;
     font-size: 9pt;
-    font-family: "ヒラギノ角ゴシック W3", sans-serif;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3", sans-serif;
     letter-spacing: 0;
 }
 
