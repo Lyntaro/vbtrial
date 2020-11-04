@@ -4,12 +4,13 @@
 /* フォント情報など */
 body {
     width: 100%;
-    font-family:"ヒラギノ角ゴシック W6","Hiragino Kaku Gothic W6","ヒラギノ角ゴ ProN W6","Hiragino Kaku Gothic ProN W6", sans-serif;
+    font-family:"ヒラギノ角ゴシック W6","Hiragino Kaku Gothic W6","ヒラギノ角ゴ ProN W6","Hiragino Kaku Gothic ProN W6", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", sans-serif;
     font-weight:100;
 }
 
-body p {
-    font-family:"ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN W3","游ゴシック", "Yu Gothic", "メイリオ", "Meiryo", sans-serif;
+body p a dd {
+    font-family:"ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN W3","游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", sans-serif;
+    /*font-weight: lighter;*/
 }
 
 
@@ -52,7 +53,7 @@ body p {
 
 .menu{
     float:left;
-    width: 103pt;
+    width: 110pt;/*103pt だとSafari で崩れる;24+8+14*5=102*/
     height: 24pt;
     margin-right: 24pt;
     margin-top: 28pt;
@@ -170,10 +171,11 @@ body p {
     font-size:12pt;
     display:inline-block;
     width:80pt;
-    height:22pt; /* 32-10 */
+    /*height:22pt; /* 32-10 */
+    height: 25pt;/*32pt だと高すぎる?*/
     text-decoration:none;
     margin:auto;
-    padding-top: 10pt;
+    padding-top: 8pt;
 }
 
 /* ログイン */
@@ -197,6 +199,7 @@ body p {
     z-index: 1001;
     color:#FFFFFF;
     background-color:#2C2C2C;
+    border:1pt solid #2C2C2C;
 }
 
 
@@ -286,14 +289,14 @@ body p {
 
 
 /* スライドショー部分 */
-/* スライドショー https://coliss.com/articles/build-websites/operation/css/css-only-slider.html */
+/* スライドショー https://coliss.com/articles/build-websites/operation/css/css-only-carousel.html */
 .slider .slides {
     box-sizing: border-box;/*margin 等をwidth 内に収める*/
 }
 
 .slider {
     width: 1044pt;
-    height: 355pt;/*325 + 24 + 6*/
+    /*height: 325pt;*/
     text-align: left;
     overflow: hidden;/*はみ出た要素の表示形式*/
     margin-left: auto;
@@ -314,6 +317,7 @@ body p {
     scroll-snap-type: mandatory;
     */
     width: 1044pt;
+    /*height: 325pt;*/
 }
 
 .slides::-webkit-scrollbar {
@@ -333,7 +337,7 @@ body p {
     scroll-snap-align: start;/*start; center; end*/
     flex-shrink: 0;
     width: 1044pt;
-    height: 443pt;
+    height: 325pt;
     margin-right: 50pt;
     border-radius: 10pt;
     /*background: #eee;*/
@@ -351,17 +355,20 @@ body p {
 .slides h3 {
     font-size: 22pt;
     margin-top: 16pt;
+    margin-left: 44pt;
 }
 
 .slides h4 {
     font-size: 18pt;
     margin-top: 56pt;
+    margin-left: 44pt;
 }
 
 #five-step {
     width: 72pt;
     height: 16pt;
     margin-top: 56pt;
+    margin-left: 44pt;
 }
 
 #slide-img-phone {
@@ -372,32 +379,66 @@ body p {
     height: 325pt;
 }
 
+#slide-img-arrow {
+    width: 20pt;
+    height: 40pt;
+    position: absolute;
+    top: 160pt;
+    left: 1022pt;
+}
+#slide-img-arrow-trans {
+    width: 20pt;
+    height: 40pt;
+    position: absolute;
+    top: 160pt;
+    left: 0;
+    transform: rotate(180deg);
+}
+#slide-img-arrow:hover {
+    opacity: .5;
+}
+#slide-img-arrow-trans:hover{
+    opacity: .5;
+}
+
 .slides p {
     font-size: 16pt;
     position: absolute;
     top: 208pt;
-    left: 0;
-    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3",sans-serif;
+    left: 44pt;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo",  sans-serif;
     display: inline-block;
     width: 240pt;
 }
-.slider > a {
+
+.slide-dots {
+    text-align: center;
+    margin-top: 24pt;
+}
+/*.slider > a {*/
+.slide-dots a {
     display: inline-flex;
-    width: 1.5rem;
-    height: 1.5rem;
-    background: white;
+    /*width: 1.5rem;
+    height: 1.5rem;*/
+    width: 6pt;
+    height: 6pt;
+    background: #EAEAEA;
     text-decoration: none;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    margin: 0 0 0.5rem 0;
+    margin: 0 10pt 0 0;
     position: relative;
 }
-.slider > a:active {
-    top: 1px;
+.slide-dots  a:active {
+    /*top: 1px;*/
+    background: #2c2c2c;
 }
-.slider > a:focus {
-    background: #000;
+.slide-dots  a:focus {
+    background: #2c2c2c;
+}
+.slide-dots a:hover {
+    opacity: .5;
 }
 /* Don't need button navigation */
 /*@supports (scroll-snap-type) {
@@ -505,7 +546,7 @@ body p {
 
 .howto dd {
     font-size:14pt;
-    font-family:"ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3", sans-serif;
+    font-family:"ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", sans-serif;
 }
 
 .howto a {
@@ -602,6 +643,7 @@ body p {
     width: 576pt;
     padding-left: 32pt;
     padding-bottom: 14pt;
+    font-family:"ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", sans-serif;
 }
 
 /*チェックが入ったら表示*/
@@ -615,8 +657,8 @@ body p {
     animation: fadein 1.0s;
     /*transform: translateY(0%);*/
     box-shadow: 6pt 0 25pt rgba(0,0,0,55);
-
 }
+
 @keyframes fadein{/*fadein を定義*//*参考：https://pisuke-code.com/css-show-elem-when-checked/*/
     from{ opacity: 0; }
     to{ opacity: 1; }
@@ -664,7 +706,7 @@ body p {
 }
 
 .faqs {
-    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3",sans-serif;
+    font-family: "ヒラギノ角ゴシック W3","Hiragino Kaku Gothic W3","游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", "Meiryo", sans-serif;
     width: 800pt;
     /*position: absolute; */
     margin-top: 32pt;
