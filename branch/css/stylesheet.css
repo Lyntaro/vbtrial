@@ -768,12 +768,63 @@ body p a dd {
     float: right;
 }
 
-.faq-checkbox:checked {
+.faq-check:checked ~ .faq-checkbox img {
     width: 18pt;
     height: 18pt;
     float: right;
     transform: rotate(45deg);
 }
+
+/*css だけでアコーディオン用アイコン*/
+.faq-label span {
+    transition: all .4s;
+}
+.btn-accordion {
+    /*display: inline-block;*/
+    /*background-color: #0095D9;*/
+    border-radius: 4pt;
+    /*margin-right: 0;*/
+    width: 24pt;
+    height: 24pt;
+    margin-left: auto;
+    position: relative;
+}
+.btn-accordion span:nth-of-type(1) {
+    width: 24pt;
+    height: 1pt;
+    background-color: #0095D9;
+    position: absolute;
+    top: 12pt;
+}
+.btn-accordion span:nth-of-type(2) {
+    width: 1pt;
+    height: 24pt;
+    background-color: #0095D9;
+    position: absolute;
+    left: 12pt;
+}
+
+.faq-check:checked ~ .faq-label span {/*.btn-accordion span だと効かない*/
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.faq-check:checked ~ .accordion-span-1 {/*.btn-accordion span だと効かない*/
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.faq-check2:checked ~ .btn-accordion-2 {/*.btn-accordion span だと効かない*/
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.faq-check3:checked ~ .accordion-span-3 {/*.btn-accordion span だと効かない*/
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*アコーディオン用アイコンここまで*/
+
+
 
 .faq-content {
     border: 0px solid #333;
