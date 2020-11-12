@@ -40,6 +40,11 @@
                 <input id="nav-input" type="checkbox" class="nav-unshown">
                 <!--<label id="nav-open" for="nav-input"><span></span></label>-->
                 <label id="nav-open" for="nav-input"><img src="images/icon_menu.svg"></label>
+                <!--<label id="nav-open" for="nav-input">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>-->
                 <label class="nav-unshown" id="nav-close" for="nav-input"></label>
                 <div id="nav-content">
                     <label class="nav-icon-opened" id="nav-icon-opened" for="nav-input"><img src="images/btn_close.svg"></label>
@@ -108,13 +113,7 @@
             <img id="five-step" src="images/5step.svg">
             <h3>ご利用の流れ</h3>
 
-            <div class="slider">
-                <a href="#slide-1">1</a>
-                <a href="#slide-2">2</a>
-                <a href="#slide-3">3</a>
-                <a href="#slide-4">4</a>
-                <a href="#slide-5">5</a>
-               
+            <div class="slider">               
                 <div class="slides">
                     <div id="slide-1">
                         <h4>1.おためし査定をする</h4>
@@ -152,7 +151,14 @@
                         </div>
                     </div><!--slide-5-->
                   </div><!--slides-->
-            </div><!--slider-->                                            
+                  <div class="slide-dots">
+                    <a href="#slide-1"></a>
+                    <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
+                    <a href="#slide-4"></a>
+                    <a href="#slide-5"></a>    
+                  </div>
+                </div><!--slider-->                                       
             <a id="search-price" href="#"><img id="search-price-img" src="images/icon_camera.svg">本の値段を調べる</a>
 
             <div class="howto-div">
@@ -172,7 +178,31 @@
                     </dl>
                 </div><!--howto-->
             </div><!--howto-div-->
-            <button id="js-show-popup">買い取れない本について</button>
+            <!--<button id="js-show-popup">買い取れない本について</button>-->
+
+            <div class="permission">
+
+                <!--モーダル-->
+                <input id="modal-input" type="checkbox" class="modal-unshown">
+                <label id="modal-open" for="modal-input">買い取れない本について</label>
+                <label class="modal-unshown" id="modal-close" for="modal-input"></label>
+                <div id="modal-content">
+                    <img src="images/icon_risk.svg">
+                    <label id="modal-close-icon" for="modal-input"><img src="../images/btn_close_bk.svg"></label>
+                    <h3>買い取れない本について</h3>
+                    <p>【本】<br>
+                        週刊誌・新聞、漫画雑誌・コンビニ漫画、漫画喫茶・レンタル落ち、同人誌・個人出版の本、「児童買春・児童ポルノ禁止法」(関連法令含む)に抵触する恐れのある全ての商品
+                    </p>
+                    <p>【ゲーム及びDVD、CD】<br>
+                        起動しない本体・ソフト、ケースが欠品しているソフト、違法なもの、ゲーム周辺機器、規格品番がないもの、シングルCD、ディスクがひどく傷ついてしまっているDVD・CD、ケースが欠品しているDVD・CD、ディスクが欠品しているDVD・CD、海賊版・コピー・サンプル版、「児童買春・児童ポルノ禁止法」(関連法令含む)に抵触する恐れのある全ての商品
+                    </p>
+                    <p>【同じタイトルの商品の取り扱いについて】<br>
+                        同一タイトルはお一人様10点までお受けしております。
+                    </p>
+                    <label id="modal-close-button" for="modal-input">閉じる</label>
+                </div><!--modal-content-->
+            </div><!--permission-->
+
             <!--
             <div class="permission">
                 <a href="#">買い取れない本について</a>
